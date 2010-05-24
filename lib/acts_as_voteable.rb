@@ -78,6 +78,10 @@ module Juixe
           Vote.count(:conditions => {:voteable_id => self.id, :voteable_type => self.class.name, :vote => 0 })
         end
         
+        def votes_trend
+          votes_for - votes_against
+        end
+        
         # Same as voteable.votes.size
         def votes_count
           self.votes.size
